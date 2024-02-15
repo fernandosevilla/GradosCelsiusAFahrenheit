@@ -4,11 +4,16 @@
  */
 package com.mycompany.gradoscelsiusafahrenheit;
 
+import javax.management.relation.RelationServiceNotRegisteredException;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usumaniana
  */
 public class GradosCelsiusAFahrenheit extends javax.swing.JFrame {
+    ImageIcon icono = new ImageIcon("./img/irina.png");
 
     /**
      * Creates new form GradosCelsiusAFahrenheit
@@ -16,7 +21,6 @@ public class GradosCelsiusAFahrenheit extends javax.swing.JFrame {
     public GradosCelsiusAFahrenheit() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +36,10 @@ public class GradosCelsiusAFahrenheit extends javax.swing.JFrame {
         numGradosFahrenheit = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         botonBorrar = new javax.swing.JButton();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        gradosFahSlider = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,46 +68,81 @@ public class GradosCelsiusAFahrenheit extends javax.swing.JFrame {
             }
         });
 
+        jSlider1.setPaintLabels(true);
+
+        jLabel2.setText("Celsius");
+
+        jLabel4.setText("Fahrenheit");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(botonBorrar))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numGradosCelsius, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(numGradosFahrenheit, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botonConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(botonBorrar)))))
-                .addContainerGap(284, Short.MAX_VALUE))
+                                .addComponent(botonConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(numGradosFahrenheit, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                .addGap(83, 83, 83)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel3))
+                                .addGap(165, 165, 165))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(numGradosCelsius, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gradosFahSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(numGradosCelsius, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
+                    .addComponent(numGradosCelsius, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(numGradosFahrenheit, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(botonConvertir)
-                .addGap(18, 18, 18)
-                .addComponent(botonBorrar)
-                .addGap(174, 174, 174))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(botonBorrar)
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(botonConvertir))
+                                .addGap(28, 28, 28))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(numGradosFahrenheit, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(231, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(gradosFahSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
 
         pack();
@@ -110,10 +153,16 @@ public class GradosCelsiusAFahrenheit extends javax.swing.JFrame {
     }//GEN-LAST:event_numGradosCelsiusActionPerformed
 
     private void botonConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConvertirActionPerformed
-        double gradosCelsius = Double.parseDouble(numGradosCelsius.getText()); // Convertir el texto del Text Field  a double
-        double fahrenheit = (gradosCelsius * 9 / 5) + 32; // Realizar la conversión a Fahrenheit
+        try {
+            double gradosCelsius = Double.parseDouble(numGradosCelsius.getText()); // Convertir el texto del Text Field  a double
+            double fahrenheit = (gradosCelsius * 9 / 5) + 32; // Realizar la conversión a Fahrenheit
 
-        numGradosFahrenheit.setText(String.valueOf(fahrenheit)); // Establecer el resultado en numGradosFahrenheit
+            numGradosFahrenheit.setText(String.valueOf(fahrenheit)); // Establecer el resultado en numGradosFahrenheit
+        } catch (NumberFormatException e) {
+            
+            JOptionPane.showMessageDialog(this, "Debes de poner valores numericos", "Error de formato", JOptionPane.PLAIN_MESSAGE, icono);
+        }
+
     }//GEN-LAST:event_botonConvertirActionPerformed
 
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
@@ -159,8 +208,12 @@ public class GradosCelsiusAFahrenheit extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonBorrar;
     private javax.swing.JButton botonConvertir;
+    private javax.swing.JLabel gradosFahSlider;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JSlider jSlider1;
     private javax.swing.JTextField numGradosCelsius;
     private javax.swing.JLabel numGradosFahrenheit;
     // End of variables declaration//GEN-END:variables
