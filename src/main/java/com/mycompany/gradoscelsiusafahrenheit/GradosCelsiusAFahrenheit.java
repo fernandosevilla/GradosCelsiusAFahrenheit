@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author usumaniana
  */
 public class GradosCelsiusAFahrenheit extends javax.swing.JFrame {
-    ImageIcon icono = new ImageIcon("./img/irina.png");
+    ImageIcon icono = new ImageIcon("./img/alonso.png");
 
     /**
      * Creates new form GradosCelsiusAFahrenheit
